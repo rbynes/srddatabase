@@ -1,4 +1,4 @@
-﻿-- Drop Statements
+﻿-- Drop Statement
 drop table StudentToTeam
 drop table AwardsToTeam
 drop table PosterToStudent
