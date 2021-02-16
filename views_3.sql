@@ -258,10 +258,13 @@ GO
 -- students they mentored that year. 
 Create View Q20
 AS 
-Select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
+Select MentorFName + ' ' + MentorLName AS MentorName, 
+       Department, 
+       MentorRegistration.MentorEmail, 
+       Count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
 From MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
-INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
+		  INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
 Where MentorRegistration.Department = 'Communications' AND SRSDToTeam.AcademicYear = 2015
 Group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
 GO 
@@ -271,12 +274,15 @@ GO
 -- students they mentored that year.
 Create View Q21
 AS 
-select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
-from MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
-INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
-where MentorRegistration.Department = 'Business' AND SRSDToTeam.AcademicYear = 2014
-group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
+Select MentorFName + ' ' + MentorLName AS MentorName, 
+       Department, 
+       MentorRegistration.MentorEmail, 
+       Count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
+From MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
+		  INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
+Where MentorRegistration.Department = 'Business' AND SRSDToTeam.AcademicYear = 2014
+Group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
 GO 
 
 
@@ -285,12 +291,15 @@ GO
 -- students they mentored that year.
 Create View Q22
 AS 
-select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
-from MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
-INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
-where MentorRegistration.Department = 'Nursing' AND SRSDToTeam.AcademicYear = 2015
-group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
+Select MentorFName + ' ' + MentorLName AS MentorName, 
+       Department, 
+       MentorRegistration.MentorEmail, 
+       Count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
+From MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
+		  INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
+Where MentorRegistration.Department = 'Nursing' AND SRSDToTeam.AcademicYear = 2015
+Group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
 GO 
 
 
@@ -300,12 +309,15 @@ GO
 -- students they mentored that year.
 Create View Q23
 AS 
-select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
-from MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
-INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
-where MentorRegistration.Department = 'English' AND SRSDToTeam.AcademicYear = 2016
-group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
+Select MentorFName + ' ' + MentorLName AS MentorName, 
+       Department, 
+       MentorRegistration.MentorEmail, 
+       Count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
+From MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
+		  INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
+Where MentorRegistration.Department = 'English' AND SRSDToTeam.AcademicYear = 2016
+Group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
 GO 
 
 
@@ -313,12 +325,15 @@ GO
 -- students they mentored that year.
 Create View Q24
 AS 
-select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
-from MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
-INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
-where MentorRegistration.Department = 'Education' AND SRSDToTeam.AcademicYear = 2019
-group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
+Select MentorFName + ' ' + MentorLName AS MentorName, 
+       Department, 
+       MentorRegistration.MentorEmail, 
+       Count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
+From MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
+		  INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
+Where MentorRegistration.Department = 'Education' AND SRSDToTeam.AcademicYear = 2019
+Group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
 GO 
 
 
@@ -326,12 +341,15 @@ GO
 -- students they mentored that year.
 Create View Q25
 AS 
-select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
-from MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
-INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
-where MentorRegistration.Department = 'Chemistry' AND SRSDToTeam.AcademicYear = 2015
-group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
+Select MentorFName + ' ' + MentorLName AS MentorName, 
+       Department, 
+       MentorRegistration.MentorEmail, 
+       Count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
+From MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
+		  INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
+Where MentorRegistration.Department = 'Chemistry' AND SRSDToTeam.AcademicYear = 2015
+Group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
 GO 
  
 
@@ -342,12 +360,15 @@ GO
 -- students they mentored that year.
 Create View Q26
 AS 
-select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
-from MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
-INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
-where MentorRegistration.Department = 'Biology' AND SRSDToTeam.AcademicYear = 2018
-group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
+Select MentorFName + ' ' + MentorLName AS MentorName, 
+       Department, 
+       MentorRegistration.MentorEmail, 
+       Count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
+From MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
+		  INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
+Where MentorRegistration.Department = 'Biology' AND SRSDToTeam.AcademicYear = 2018
+Group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
 GO 
 
 
@@ -357,29 +378,32 @@ GO
 -- students they mentored that year.
 Create View Q27 
 AS 
-select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
-from MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
-INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
-where MentorRegistration.Department = 'Art' AND SRSDToTeam.AcademicYear = 2015
-group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
+Select MentorFName + ' ' + MentorLName AS MentorName, 
+       Department, 
+       MentorRegistration.MentorEmail, 
+       Count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
+From MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
+		  INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
+Where MentorRegistration.Department = 'Art' AND SRSDToTeam.AcademicYear = 2015
+Group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
 GO 
 
 
 -- Q28: How many Awards were won in 2014? 
 Create View Q28
 AS 
-select count(AwardID) AS NumOfTeamsWhoWonAwards 
-from AwardsToTeam
-where AcademicYear = 2014; 
+Select Count(AwardID) AS NumOfTeamsWhoWonAwards 
+From AwardsToTeam
+Where AcademicYear = 2014; 
 GO 
 
 
 -- Q29: How many Awards were won? 
 Create View Q29
 AS 
-select count(AwardID) AS NumOfTeamsWhoWonAwards 
-from AwardsToTeam; 
+Select Count(AwardID) AS NumOfTeamsWhoWonAwards 
+From AwardsToTeam; 
 GO 
 
 
@@ -388,120 +412,150 @@ GO
 -- Q30: Who were the teams that won awards in 2014? Display their TeamID, the award name, and the year they won the award.  
 Create View Q30
 AS 
-select distinct AwardsToTeam.TeamID,  AwardName, AwardsToTeam.AcademicYear
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
-where AwardsToTeam.AcademicYear = 2014;
- GO 
+Select Distinct AwardsToTeam.TeamID,  
+                AwardName, 
+		AwardsToTeam.AcademicYear
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		  INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
+Where AwardsToTeam.AcademicYear = 2014;
+GO 
 
 
 -- Q31: Who were the teams that won awards in 2015? Display their TeamID, the award name, and the year they won the award.  
 Create View Q31
 AS 
-select distinct AwardsToTeam.TeamID,  AwardName, AwardsToTeam.AcademicYear
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
-where AwardsToTeam.AcademicYear = 2015; 
+Select Distinct AwardsToTeam.TeamID,  
+                AwardName, 
+		AwardsToTeam.AcademicYear
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		  INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
+Where AwardsToTeam.AcademicYear = 2015; 
 GO 
 
 
 -- Q32: Who were the teams that won awards in 2016? Display their TeamID, the award name, and the year they won the award.  
 Create View Q32
 AS 
-select distinct AwardsToTeam.TeamID,  AwardName, AwardsToTeam.AcademicYear
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
-where AwardsToTeam.AcademicYear = 2016; 
+Select Distinct AwardsToTeam.TeamID,  
+                AwardName, 
+		AwardsToTeam.AcademicYear
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		  INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
+Where AwardsToTeam.AcademicYear = 2016; 
 GO 
 
 
 -- Q33: Who were the teams that won awards in 2016? Display their TeamID, the award name, and the year they won the award.  
 Create View Q33
 AS 
-select distinct AwardsToTeam.TeamID,  AwardName, AwardsToTeam.AcademicYear
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
-where AwardsToTeam.AcademicYear = 2017; 
+Select Distinct AwardsToTeam.TeamID,  
+                AwardName, 
+		AwardsToTeam.AcademicYear
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		  INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
+Where AwardsToTeam.AcademicYear = 2017; 
 GO 
 
 
 -- Q34: Who were the teams that won awards in 2016? Display their TeamID, the award name, and the year they won the award.  
 Create View Q34
 AS 
-select distinct AwardsToTeam.TeamID,  AwardName, AwardsToTeam.AcademicYear
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
-where AwardsToTeam.AcademicYear = 2018; 
+Select Distinct AwardsToTeam.TeamID,  
+                AwardName, 
+		AwardsToTeam.AcademicYear
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		  INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
+Where AwardsToTeam.AcademicYear = 2018; 
 GO 
 
 
 -- Q35: Who were the teams that won awards in 2016? Display their TeamID, the award name, and the year they won the award.  
 Create View Q35
 AS 
-select distinct AwardsToTeam.TeamID,  AwardName, AwardsToTeam.AcademicYear
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
-where AwardsToTeam.AcademicYear = 2019; 
+Select Distinct AwardsToTeam.TeamID,  
+                AwardName, 
+		AwardsToTeam.AcademicYear
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		  INNER JOIN Awards ON AwardsToTeam.AwardID = Awards.AwardID
+Where AwardsToTeam.AcademicYear = 2019; 
 GO 
 
 
 -- Q36: What is the scedule for SRSD day in 2014?
 Create View Q36
 AS  
-select EventName, EventLocation, EventDate, AcademicYear
-from SRSDEvents
-where AcademicYear = 2014; 
+Select EventName, 
+       EventLocation, 
+       EventDate, 
+       AcademicYear
+From SRSDEvents
+Where AcademicYear = 2014; 
 GO 
 
 
 -- Q37: What is the scedule for SRSD day in 2015?
 Create View Q37
 AS  
-select EventName, EventLocation, EventDate, AcademicYear
-from SRSDEvents
-where AcademicYear = 2015; 
+Select EventName, 
+       EventLocation, 
+       EventDate, 
+       AcademicYear
+From SRSDEvents
+Where AcademicYear = 2015; 
 GO 
  
 
 -- Q38: What is the scedule for SRSD day in 2016?
 Create View Q38
 AS  
-select EventName, EventLocation, EventDate, AcademicYear
-from SRSDEvents
-where AcademicYear = 2016; 
+Select EventName, 
+       EventLocation, 
+       EventDate, 
+       AcademicYear
+From SRSDEvents
+Where AcademicYear = 2016; 
 GO 
 
 
 -- Q39: What is the scedule for SRSD day in 2017?
 Create View Q39
 AS  
-select EventName, EventLocation, EventDate, AcademicYear
-from SRSDEvents
-where AcademicYear = 2017; 
+Select EventName, 
+       EventLocation, 
+       EventDate, 
+       AcademicYear
+From SRSDEvents
+Where AcademicYear = 2017; 
 GO 
 
 
 -- Q40: What is the scedule for SRSD day in 2018?
 Create View Q40
 AS  
-select EventName, EventLocation, EventDate, AcademicYear
-from SRSDEvents
-where AcademicYear = 2018; 
+Select EventName, 
+       EventLocation, 
+       EventDate, 
+       AcademicYear
+From SRSDEvents
+Where AcademicYear = 2018; 
 GO 
 
 
 -- Q41: What is the scedule for SRSD day in 2019?
 Create View Q41
 AS  
-select EventName, EventLocation, EventDate, AcademicYear
-from SRSDEvents
-where AcademicYear = 2019; 
+Select EventName, 
+       EventLocation, 
+       EventDate, 
+       AcademicYear
+From SRSDEvents
+Where AcademicYear = 2019; 
 GO 
 
 -- Q42: For each academic year, identify both the faculty members who mentored multiple winning research 
@@ -509,26 +563,34 @@ GO
 -- in each given year. Do this in a single query. You may need to use a UNION to implement it.
 Create View Q42
 AS
-select StudentRegistration.Major, AwardsToTeam.AcademicYear, count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-group by StudentRegistration.Major, AcademicYear
+Select StudentRegistration.Major, 
+       AwardsToTeam.AcademicYear, 
+       Count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+Group by StudentRegistration.Major, AcademicYear
 UNION
-select MentorRegistration.Department, AwardsToTeam.AcademicYear, count( MentorRegistration.MentorID) AS NumOfMentors 
-from AwardsToTeam INNER JOIN MentorToTeam ON AwardsToTeam.TeamID = MentorToTeam.TeamID
-INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
-group by MentorRegistration.Department , AcademicYear; 
+Select MentorRegistration.Department, 
+       AwardsToTeam.AcademicYear, 
+       Count( MentorRegistration.MentorID) AS NumOfMentors 
+From AwardsToTeam INNER JOIN MentorToTeam ON AwardsToTeam.TeamID = MentorToTeam.TeamID
+		  INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
+Group by MentorRegistration.Department, 
+	 AcademicYear; 
 GO  
 		 
 
 -- Q43: For each department, identify the number of students who won awards each year.
 Create View Q43
 AS 
-select StudentRegistration.Major, AcademicYear, count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-where AwardsToTeam.AcademicYear = 2014 
-group by StudentRegistration.Major, AcademicYear; 
+Select StudentRegistration.Major, 
+       AcademicYear, 
+       Count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+Where AwardsToTeam.AcademicYear = 2014 
+Group by StudentRegistration.Major, 
+         AcademicYear; 
 GO 
 
  
@@ -537,55 +599,70 @@ GO
 -- Q44: For each department, identify the number of students who won awards 2015.
 Create View Q44
 AS
-select StudentRegistration.Major, AcademicYear, count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-where AwardsToTeam.AcademicYear = 2015
-group by StudentRegistration.Major, AcademicYear; 
+Select StudentRegistration.Major, 
+       AcademicYear, 
+       Count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+Where AwardsToTeam.AcademicYear = 2015
+Group by StudentRegistration.Major, 
+	 AcademicYear; 
 GO 
  
 
 -- Q45: For each department, identify the number of students who won awards 2016.
 Create View Q45
 AS
-select StudentRegistration.Major, AcademicYear, count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-where AwardsToTeam.AcademicYear = 2016
-group by StudentRegistration.Major, AcademicYear; 
+Select StudentRegistration.Major, 
+       AcademicYear, 
+       Count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+Where AwardsToTeam.AcademicYear = 2016
+Group by StudentRegistration.Major, 
+	 AcademicYear; 
 GO 
 
 
 -- Q46: For each department, identify the number of students who won awards 2017.
 Create View Q46
 AS
-select StudentRegistration.Major, AcademicYear, count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-where AwardsToTeam.AcademicYear = 2017
-group by StudentRegistration.Major, AcademicYear; 
+Select StudentRegistration.Major, 
+       AcademicYear, 
+       Count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+Where AwardsToTeam.AcademicYear = 2017
+Group by StudentRegistration.Major, 
+	 AcademicYear; 
 GO 
 
 
 -- Q47: For each department, identify the number of students who won awards 2018.
 Create View Q47
 AS
-select StudentRegistration.Major, AcademicYear, count(StudentToTeam.StudentID) AS NumOfStudenstWhoWon 
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-where AwardsToTeam.AcademicYear = 2018
-group by StudentRegistration.Major, AcademicYear; 
+Select StudentRegistration.Major, 
+       AcademicYear, 
+       Count(StudentToTeam.StudentID) AS NumOfStudenstWhoWon 
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+Where AwardsToTeam.AcademicYear = 2018
+Group by StudentRegistration.Major, 
+	 AcademicYear; 
 GO 
 
 
 -- Q48: For each department, identify the number of students who won awards 2019.
 Create View Q48
 AS
-select StudentRegistration.Major, AcademicYear, count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
-from AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-where AwardsToTeam.AcademicYear = 2019
-group by StudentRegistration.Major, AcademicYear; 
+Select StudentRegistration.Major, 
+       AcademicYear, 
+       Count(StudentToTeam.StudentID) AS NumOfStudentsWhoWon 
+From AwardsToTeam INNER JOIN StudentToTeam ON AwardsToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+Where AwardsToTeam.AcademicYear = 2019
+Group by StudentRegistration.Major, 
+	 AcademicYear; 
 GO  
 
 
@@ -594,10 +671,11 @@ GO
 -- Q49: Display all the students who registered an oral presentation. 
 Create View Q49 
 AS 
-select StudentFName + ' ' + StudentLName AS StudentName, PresentationType.Presentation 
-from PosterToStudent INNER JOIN StudentRegistration ON PosterToStudent.StudentID = StudentRegistration.StudentID
-INNER JOIN PresentationType ON PosterToStudent.PresentationID = PresentationType.PresentationID
-where Presentation = 'Oral'; 
+Select StudentFName + ' ' + StudentLName AS StudentName, 
+       PresentationType.Presentation 
+From PosterToStudent INNER JOIN StudentRegistration ON PosterToStudent.StudentID = StudentRegistration.StudentID
+		     INNER JOIN PresentationType ON PosterToStudent.PresentationID = PresentationType.PresentationID
+Where Presentation = 'Oral'; 
 GO 
 
 
