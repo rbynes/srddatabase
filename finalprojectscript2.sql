@@ -1,17 +1,17 @@
-﻿-- Drop Statement
-drop table StudentToTeam
-drop table AwardsToTeam
-drop table PosterToStudent
-drop table MentorToTeam
-drop table SRSDEvents
-drop table SRSDToTeam
-drop table SRSD
-drop table StudentRegistration
-drop table Teams
-drop table MentorRegistration
-drop table PresentationType
-drop table Awards 
-drop table KeynoteSpeaker
+﻿-- Drop Statements
+Drop Table StudentToTeam
+Drop Table AwardsToTeam
+Drop Table PosterToStudent
+Drop Table MentorToTeam
+Drop Table SRSDEvents
+Drop Table SRSDToTeam
+Drop Table SRSD
+Drop Table StudentRegistration
+Drop Table Teams
+Drop Table MentorRegistration
+Drop Table PresentationType
+Drop Table Awards 
+Drop Table KeynoteSpeaker
 
 --drop view Q1, Q2, Q3ForStudentsApproven, Q3ForStudentsRegistered, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16, Q17, Q18, Q19, Q20, Q21, Q22, Q23, Q24, Q25, Q26, Q27, Q28, Q29
 --drop view Q30, Q31, Q32, Q33, Q34, Q35, Q36, Q37, Q38, Q39, Q40, Q41, Q42, Q43, Q44, Q45, Q46, Q47, Q48, Q49, Q50
@@ -126,7 +126,7 @@ VALUES
 (	81	,'R0456891'	,	'Nursing'	,'Trina'	,'Lara'	,'tlara@email.sc.edu'	,	'Senior'	),
 (	82	,'J7176045'	,	'Communications'	,'Tonia'	,'Hogan'	,'thogan@email.sc.edu'	,	'Junior'	),
 (	83	,'P1421881'	,	'Communications'	,'Neal'	,'Keller'	,'nkeller@email.sc.edu'	,	'Junior'	),
-(	84	,'D9572262'	,	'English'	,'Bethany'	,'Lozano'	,'blozano@email.sc.edu'	,	'Senior'	), 
+( 84,'D9572262','English','Bethany','Lozano','blozano@email.sc.edu'	,	'Senior'	), 
 ( 85 ,'C9580951' , 'Biology' ,'Casey' ,'Bauer' ,'cbauer@email.sc.edu' , 'Freshman' ),
 ( 86 ,'D2126248' , 'Education' ,'Lindsay' ,'Hebert' ,'lhebert@email.sc.edu' , 'Senior' ),
 ( 87 ,'A4650240' , 'Computer Science' ,'Rebekah' ,'Estes' ,'restes@email.sc.edu' , 'Senior' ),
