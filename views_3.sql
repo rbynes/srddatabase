@@ -2,12 +2,15 @@
 -- Q1: How many students had their project approved?
 Create View Q1
 AS   
-select StudentID, StudentFName, StudentLName, StudentEmail
-from StudentRegistration
-where StudentID IN 
+Select StudentID, 
+       StudentFName, 
+       StudentLName, 
+       StudentEmail
+From StudentRegistration
+Where StudentID IN 
 (
-select StudentID
-from StudentToTeam
+Select StudentID
+From StudentToTeam
 );
 GO
 
@@ -16,12 +19,15 @@ GO
 -- Q2: How many students DIDN'T have their project approved?
 Create View Q2
 AS  
-select StudentID, StudentFName, StudentLName, StudentEmail
-from StudentRegistration
-where StudentID NOT IN 
+Select StudentID, 
+       StudentFName, 
+       StudentLName, 
+       StudentEmail
+From StudentRegistration
+Where StudentID NOT IN 
 (
-select StudentID
-from StudentToTeam
+Select StudentID
+From StudentToTeam
 );
 GO 
 --select * from Q2 
@@ -31,28 +37,30 @@ GO
 -- students who registered 
 Create View Q3ForStudentsRegistered 
 AS 
-select Major, count(*) AS NumOfStudentsForThatMajor 
-from StudentRegistration 
-group by Major;
+Select Major, 
+       Count(*) AS NumOfStudentsForThatMajor 
+From StudentRegistration 
+Group by Major;
 GO 
 -- students approved 
 --select * from Q3ForStudentsRegistered
 
 Create View Q3ForStudentsApproven 
 AS 
-select Major, count(*) AS NumOfStudentsForThatMajor
-from StudentRegistration INNER JOIN StudentToTeam ON StudentRegistration.StudentID = StudentToTeam.StudentID
-group by Major;
+Select Major, 
+       Count(*) AS NumOfStudentsForThatMajor
+From StudentRegistration INNER JOIN StudentToTeam ON StudentRegistration.StudentID = StudentToTeam.StudentID
+Group by Major;
 GO 
 --select * from Q3ForStudentsApproven
 
 -- Q4: For 2014, what is the number students who participated in SRSD whose major is Computer Science?
 Create View Q4
 AS 
-select count(distinct StudentToTeam.StudentID) AS NumOfCSCIStudents
-from StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
-where Major = 'Computer Science' AND SRSDToTeam.AcademicYear = 2014;
+Select Count(Distinct StudentToTeam.StudentID) AS NumOfCSCIStudents
+From StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+	           INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
+Where Major = 'Computer Science' AND SRSDToTeam.AcademicYear = 2014;
 GO 
 
 
@@ -61,10 +69,10 @@ GO
 -- Q5: For 2014, what is the number students who participated in SRSD whose major is Communications?
 Create View Q5
 AS 
-select count(distinct StudentToTeam.StudentID) AS NumOfCommStudents
-from StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
-where Major = 'Communications' AND SRSDToTeam.AcademicYear = 2014;
+Select Count(Distinct StudentToTeam.StudentID) AS NumOfCommStudents
+From StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		   INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
+Where Major = 'Communications' AND SRSDToTeam.AcademicYear = 2014;
 GO 
 
 
@@ -72,20 +80,20 @@ GO
 -- Q6: For 2014, what is the number students who participated in SRSD whose major is Business?
 Create View Q6
 AS 
-select count(distinct StudentToTeam.StudentID) AS NumOfBusStudents
-from StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
-where Major = 'Business' AND SRSDToTeam.AcademicYear = 2014;
+Select Count(Distinct StudentToTeam.StudentID) AS NumOfBusStudents
+From StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+	           INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
+Where Major = 'Business' AND SRSDToTeam.AcademicYear = 2014;
 GO 
  
 
 -- Q7: For 2014, what is the number students who participated in SRSD whose major is Biology?
 Create View Q7
 AS 
-select count(distinct StudentToTeam.StudentID) AS NumOfBioStudents
-from StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
-where Major = 'Biology' AND SRSDToTeam.AcademicYear = 2014;
+Select Count(Distinct StudentToTeam.StudentID) AS NumOfBioStudents
+From StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		   INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
+Where Major = 'Biology' AND SRSDToTeam.AcademicYear = 2014;
 GO 
  
 
@@ -93,10 +101,10 @@ GO
 -- Q8: For 2014, what is the number students who participated in SRSD whose major is Art?
 Create View Q8
 AS 
-select count(distinct StudentToTeam.StudentID) AS NumOfArtStudents
-from StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
-where Major = 'Art' AND SRSDToTeam.AcademicYear = 2014;
+Select Count(Distinct StudentToTeam.StudentID) AS NumOfArtStudents
+From StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		   INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
+Where Major = 'Art' AND SRSDToTeam.AcademicYear = 2014;
 GO 
  
 
@@ -104,10 +112,10 @@ GO
 -- Q9: For 2014, what is the number students who participated in SRSD whose major is Chemistry?
 Create View Q9
 AS 
-select count(distinct StudentToTeam.StudentID) AS NumOfChemStudents
-from StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
-where Major = 'Chemistry' AND SRSDToTeam.AcademicYear = 2014;
+Select Count(Distinct StudentToTeam.StudentID) AS NumOfChemStudents
+From StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+	           INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
+Where Major = 'Chemistry' AND SRSDToTeam.AcademicYear = 2014;
 GO 
 
 
@@ -115,10 +123,10 @@ GO
 -- Q10: For 2014, what is the number students who participated in SRSD whose major is Education?
 Create View Q10
 AS 
-select count(distinct StudentToTeam.StudentID) AS NumOfEducationStudents
-from StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
-where Major = 'Education' AND SRSDToTeam.AcademicYear = 2014; 
+Select Count(Distinct StudentToTeam.StudentID) AS NumOfEducationStudents
+From StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		   INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
+Where Major = 'Education' AND SRSDToTeam.AcademicYear = 2014; 
 GO 
 
 
@@ -126,20 +134,20 @@ GO
 -- Q11: For 2014, what is the number students who participated in SRSD whose major is Nursing?
 Create View Q11
 AS 
-select count(distinct StudentToTeam.StudentID) AS NumOfNursingStudents
-from StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
-where Major = 'Nursing' AND SRSDToTeam.AcademicYear = 2014;
+Select Count(Distinct StudentToTeam.StudentID) AS NumOfNursingStudents
+From StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		   INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
+Where Major = 'Nursing' AND SRSDToTeam.AcademicYear = 2014;
 GO 
 
 
 -- Q12: For 2014, what is the number students who participated in SRSD whose major is English?
 Create View Q12
 AS 
-select count(distinct StudentToTeam.StudentID) AS NumOfChemStudents
-from StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
-INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
-where Major = 'English' AND SRSDToTeam.AcademicYear = 2014;
+Select Count(Distinct StudentToTeam.StudentID) AS NumOfChemStudents
+From StudentToTeam INNER JOIN StudentRegistration ON StudentToTeam.StudentID = StudentRegistration.StudentID
+		   INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
+Where Major = 'English' AND SRSDToTeam.AcademicYear = 2014;
 GO 
 
 
@@ -148,9 +156,13 @@ GO
 -- Profession, Degree, University, and the year they were a keynote speaker. 
 Create View Q13
 AS 
-select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, Profession, Degree, University, AcademicYear
-from SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
-where SRSDEvents.AcademicYear = 2014;
+Select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, 
+       Profession, 
+       Degree, 
+       University, 
+       AcademicYear
+From SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
+Where SRSDEvents.AcademicYear = 2014;
 GO 
 
 
@@ -159,9 +171,13 @@ GO
 -- Profession, Degree, University, and the year they were a keynote speaker.
 Create View Q14
 AS 
-select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, Profession, Degree, University, AcademicYear
-from SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
-where SRSDEvents.AcademicYear = 2015;
+Select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, 
+       Profession, 
+       Degree, 
+       University, 
+       AcademicYear
+From SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
+Where SRSDEvents.AcademicYear = 2015;
 GO 
 
 
@@ -170,9 +186,13 @@ GO
 -- Profession, Degree, University, and the year they were a keynote speaker.
 Create View Q15
 AS 
-select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, Profession, Degree, University, AcademicYear
-from SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
-where SRSDEvents.AcademicYear = 2016;
+Select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, 
+       Profession, 
+       Degree, 
+       University, 
+       AcademicYear
+From SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
+Where SRSDEvents.AcademicYear = 2016;
 GO 
 
 
@@ -180,9 +200,13 @@ GO
 -- Profession, Degree, University, and the year they were a keynote speaker.
 Create View Q16
 AS 
-select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, Profession, Degree, University,AcademicYear
-from SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
-where SRSDEvents.AcademicYear = 2017;
+Select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, 
+       Profession, 
+       Degree, 
+       University,
+       AcademicYear
+From SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
+Where SRSDEvents.AcademicYear = 2017;
 GO 
 
 
@@ -190,9 +214,13 @@ GO
 -- Profession, Degree, University, and the year they were a keynote speaker.
 Create View Q17
 AS 
-select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, Profession, Degree, University, AcademicYear
-from SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
-where SRSDEvents.AcademicYear = 2018;
+Select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, 
+       Profession, 
+       Degree, 
+       University, 
+       AcademicYear
+From SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
+Where SRSDEvents.AcademicYear = 2018;
 GO 
 
 
@@ -200,9 +228,13 @@ GO
 -- Profession, Degree, University, and the year they were a keynote speaker.
 Create View Q18
 AS 
-select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, Profession, Degree, University, AcademicYear
-from SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
-where SRSDEvents.AcademicYear = 2019;
+Select SpeakerFName + ' ' + SpeakerLName AS KeynoteName, 
+       Profession, 
+       Degree, 
+       University, 
+       AcademicYear
+From SRSDEvents INNER JOIN KeynoteSpeaker ON SRSDEvents.KeynoteID = KeynoteSpeaker.KeynoteID
+Where SRSDEvents.AcademicYear = 2019;
 GO 
 
 
@@ -210,12 +242,15 @@ GO
 -- students they mentored that year. Break this out by faculty member department.
 Create View Q19
 AS 
-select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
-from MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
-INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
-INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
-where MentorRegistration.Department = 'Computer Science' AND SRSDToTeam.AcademicYear = 2014
-group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail;
+Select MentorFName + ' ' + MentorLName AS MentorName, 
+       Department, 
+       MentorRegistration.MentorEmail, 
+       Count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
+From MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
+		  INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
+		  INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
+Where MentorRegistration.Department = 'Computer Science' AND SRSDToTeam.AcademicYear = 2014
+Group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail;
 GO 
 
 
@@ -223,12 +258,12 @@ GO
 -- students they mentored that year. 
 Create View Q20
 AS 
-select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
-from MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
+Select MentorFName + ' ' + MentorLName AS MentorName, Department, MentorRegistration.MentorEmail, count(StudentToTeam.StudentID) AS NumberOfStudentsMentored
+From MentorToTeam INNER JOIN MentorRegistration ON MentorToTeam.MentorID = MentorRegistration.MentorID
 INNER JOIN StudentToTeam ON MentorToTeam.TeamID = StudentToTeam.TeamID
 INNER JOIN SRSDToTeam ON MentorToTeam.TeamID = SRSDToTeam.TeamID
-where MentorRegistration.Department = 'Communications' AND SRSDToTeam.AcademicYear = 2015
-group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
+Where MentorRegistration.Department = 'Communications' AND SRSDToTeam.AcademicYear = 2015
+Group by MentorFName, MentorLName, Department, MentorRegistration.MentorEmail; 
 GO 
 
 
@@ -569,11 +604,13 @@ GO
 -- Q50: Display all the students who had their oral presentation approved.
 Create View Q50
 AS  
-select distinct StudentFName + ' ' + StudentLName AS StudentName, PresentationType.Presentation , AcademicYear
+select distinct StudentFName + ' ' + StudentLName AS StudentName, 
+	        PresentationType.Presentation , 
+		AcademicYear
 from PosterToStudent INNER JOIN StudentRegistration ON PosterToStudent.StudentID = StudentRegistration.StudentID
-INNER JOIN PresentationType ON PosterToStudent.PresentationID = PresentationType.PresentationID
-INNER JOIN StudentToTeam ON PosterToStudent.StudentID = StudentToTeam.StudentID
-INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
+		     INNER JOIN PresentationType ON PosterToStudent.PresentationID = PresentationType.PresentationID
+		     INNER JOIN StudentToTeam ON PosterToStudent.StudentID = StudentToTeam.StudentID
+		     INNER JOIN SRSDToTeam ON StudentToTeam.TeamID = SRSDToTeam.TeamID
 where Presentation = 'Oral' AND AcademicYear = 2018; 
 GO 
 
